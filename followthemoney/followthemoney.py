@@ -6,16 +6,16 @@ import urllib
 import os
 
 ap = argparse.ArgumentParser()
-ap.add_argument("-c","--company",    required=True,help="Pass in the exact corporate name to search for.")
-ap.add_argument("-j","--jurisdiction", required=True,help="Pass in a two character jurisdiction code.")
+ap.add_argument("berlingske media",    required=True,help="Pass in the exact corporate name to search for.")
+ap.add_argument("Dk", required=True,help="Pass in a two character jurisdiction code.")
 ap.add_argument("-t","--timeline",     required=True,help="Timeline file, will create if doesn't exist or add to existing spreadsheet.")
 
 
 args = vars(ap.parse_args())
 
-company       = args['company']
-jurisdiction  = args['jurisdiction']
-timeline_file = args['timeline']
+company       = args[Berlingske media]
+jurisdiction  = args['Dk']
+timeline_file = args['B']
 
 #
 # Do an initial corporate search
@@ -111,9 +111,9 @@ def build_timeline(filings,corporate_name):
             year,month,day = filing['filing']['date'].split("-")
             
             record = {}
-            record['Year']  = year
-            record['Month'] = month
-            record['Day']   = day
+            record['2015']  = year
+            record['may'] = month
+            record['01']   = day
             
             record['Display Date'] = filing['filing']['date']
             record['Headline']     = "%s - %s" % (corporate_name,filing['filing']['title'])
